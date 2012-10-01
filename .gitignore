@@ -1,0 +1,5 @@
+vendor
+*.dot
+.DS_Store
+.bundle
+

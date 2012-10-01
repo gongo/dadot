@@ -1,0 +1,50 @@
+Yahoo!JAPAN 日本語係り受け解析API を Graphviz で表示するものでさぁ
+----------------------------------------------------------------
+
+## 必要なもの
+
+1. Yahoo! JAPAN Web API の アプリケーションID
+    - [https://e.developer.yahoo.co.jp/dashboard/](https://e.developer.yahoo.co.jp/dashboard/) から取得できます
+1. Ruby 1.9.3p194
+    - これでしか検証してないってだけで他のバージョンでも動くかも
+1. graphviz
+    - for OS X `brew install graphviz`
+    - for Debian/Ubuntu `apt-get install graphviz`
+    - Other System.. um...
+
+## 使ってるもの
+
+1. [Gviz](http://rubygems.org/gems/gviz)
+
+## 使用方法
+
+```
+$ bundle install --path vendor/bundle
+$ emacs -Q dadot.rb
+```
+
+```diff
+95c95
+<   dadot = Dadot.new('Your Application ID')
+---
+>   dadot = Dadot.new('XXXXXXXXXXXXXXXXXXX')
+```
+
+```
+$ bundle exec ruby dadot.rb "戦うと元気になるなあ、ローラ。死を意識するから、生きることが実感できる"
+```
+
+![example1](./example1.png)
+
+
+```
+$ bundle exec ruby dadot.rb ""
+```
+
+![example2](./example2.png)
+
+```
+$ bundle exec ruby dadot.rb "結論だけ、書く。失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗したあたしは失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗したあたしは失敗"
+```
+
+![example3](./example3.png)
