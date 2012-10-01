@@ -34,17 +34,21 @@ $ emacs -Q dadot.rb
 $ bundle exec ruby dadot.rb "戦うと元気になるなあ、ローラ。死を意識するから、生きることが実感できる"
 ```
 
-![example1](./example1.png)
+![example1](https://raw.github.com/gongo/dadot/master/example1.png)
 
 
 ```
 $ bundle exec ruby dadot.rb ""
 ```
 
-![example2](./example2.png)
+![example2](https://raw.github.com/gongo/dadot/master/example2.png)
 
 ```
 $ bundle exec ruby dadot.rb "結論だけ、書く。失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗したあたしは失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗したあたしは失敗"
 ```
 
-![example3](./example3.png)
+![example3](https://raw.github.com/gongo/dadot/master/example3.png)
+
+## License
+
+MIT License
