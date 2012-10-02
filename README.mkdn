@@ -31,20 +31,23 @@ $ emacs -Q config.yml
 ```
 
 ```
-$ bundle exec ruby dadot.rb "戦うと元気になるなあ、ローラ。死を意識するから、生きることが実感できる"
+$ bundle exec ruby dadot.rb run "戦うと元気になるなあ、ローラ。死を意識するから、生きることが実感できる"
+# => create '#{Time.now.strftime("%Y%m%d%H%M%S")}.png'
 ```
 
 ![example1](https://raw.github.com/gongo/dadot/master/example1.png)
 
 
 ```
-$ bundle exec ruby dadot.rb ""
+$ bundle exec ruby dadot.rb "" -o error
+# => create 'error.png'
 ```
 
 ![example2](https://raw.github.com/gongo/dadot/master/example2.png)
 
 ```
-$ bundle exec ruby dadot.rb "結論だけ、書く。失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗したあたしは失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗したあたしは失敗"
+$ bundle exec ruby dadot.rb "結論だけ、書く。失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗したあたしは失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗した失敗したあたしは失敗" -f svg -o suzuha
+# => create 'suzuha.svg'
 ```
 
 ![example3](https://raw.github.com/gongo/dadot/master/example3.png)
