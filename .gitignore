@@ -2,4 +2,5 @@ vendor
 *.dot
 .DS_Store
 .bundle
+config.yml
 

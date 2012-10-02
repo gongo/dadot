@@ -20,14 +20,14 @@ Yahoo!JAPAN 日本語係り受け解析API を Graphviz で表示するもので
 
 ```
 $ bundle install --path vendor/bundle
-$ emacs -Q dadot.rb
+$ cp config.yml.sample config.yml
+$ emacs -Q config.yml
 ```
 
 ```diff
-95c95
-<   dadot = Dadot.new('Your Application ID')
+<   yahoo_api: Your Yahoo! Web Application ID
 ---
->   dadot = Dadot.new('XXXXXXXXXXXXXXXXXXX')
+>   yahoo_api: XXXXXXXXXXXX
 ```
 
 ```

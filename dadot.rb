@@ -3,12 +3,13 @@ require 'erb'
 require 'gviz'
 require 'open-uri'
 require 'rexml/document'
+require 'yaml'
 
 class Dadot
   REQUEST_URI = 'http://jlp.yahooapis.jp/DAService/V1/parse'
 
-  def initialize(app_id)
-    @app_id = app_id
+  def initialize
+    @app_id = YAML.load_file(config_path)['yahoo_api']
   end
 
   def run(text)
@@ -22,7 +23,7 @@ class Dadot
       end
     end
 
-    gv.save(:pref, :png)
+    gv.save(:pref, :svg)
   end
 
   private
@@ -89,10 +90,13 @@ class Dadot
   def url_encode(text)
     ERB::Util.url_encode(text)
   end
+
+  def config_path
+    "#{File.dirname(__FILE__)}/config.yml"
+  end
 end
 
 if __FILE__ == $0
-  dadot = Dadot.new('Your Application ID')
+  dadot = Dadot.new
   dadot.run(ARGV[0])
 end
-
