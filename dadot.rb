@@ -30,9 +30,9 @@ module Dadot
 
       gv.graph do
         global rankdir: :LR
-        data.each do |id, surfaces, dep|
+        data.each do |id, text, dep|
           route id => dep unless dep == :"-1"
-          node id, shape:'Mrecord', label: '{' + surfaces.map(&:text).join('|') + '}'
+          node id, shape:'Mrecord', label: '{' + text + '}'
         end
       end
 
@@ -69,7 +69,7 @@ module Dadot
     # @return [Array]
     #   parse したオブジェクトの配列
     #     obj[0] => 文節の番号
-    #     obj[1] => 文節の形態素配列
+    #     obj[1] => 文節文字列(形態素ごとに | で結合)
     #     obj[2] => この文節の係り受け先
     #
     def parse(xml)
@@ -78,7 +78,7 @@ module Dadot
       if !doc.elements['/Error/Message'].nil?
         return [[
             :"1",
-            [doc.elements['/Error/Message'].get_text.to_s.gsub("\n", "")],
+            doc.elements['/Error/Message'].get_text.to_s.gsub("\n", ""),
             :"-1"
           ]]
       end
@@ -88,7 +88,7 @@ module Dadot
       doc.each_element('ResultSet/Result/ChunkList/Chunk') do |chunk|
         chunk_list << [
           chunk.get_text('Id').to_s.to_sym,
-          chunk.get_elements('MorphemList/Morphem/Surface'),
+          chunk.get_elements('MorphemList/Morphem/Surface').map(&:text).join('|'),
           chunk.get_text('Dependency').to_s.to_sym
         ]
       end
